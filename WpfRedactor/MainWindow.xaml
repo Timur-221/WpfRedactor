@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfRedactor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfRedactor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="UnitChoice" Grid.Column="3" Height="30" Width="200" SelectionChanged="UnitChoice_SelectionChanged">
+            <StackPanel>
+                <TextBlock>Warrior</TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock>Wizard</TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock>Rouge</TextBlock>
+            </StackPanel>
+        </ComboBox>
+        <Label Content="Strenght" FontSize="30" HorizontalAlignment="Center" Margin="0,0,0,80" Width="160"></Label>
+        <TextBlock x:Name="p1" FontSize="25" Height="30" Width="40" Margin="200 0 0 20" Text="{Binding ElementName=Strength, Path=Value}"></TextBlock>
+        <Slider IsSnapToTickEnabled="True" TickFrequency="1" Height="30" Width="150" x:Name="Strength" ></Slider>
+        <Button Content="Add" FontSize="20" Height="40" Width="100" Grid.Column="3" Margin="0 90 0 0" x:Name="SaveDB" Click="SaveDB_Click"></Button>
+        <TextBox x:Name="NameUnit" Grid.Row="1" Grid.Column="2" Height="40" Width="200"></TextBox>
+        <Label Content="Name" FontSize="30" HorizontalAlignment="Center" Margin="70 0 0 0" Width="160" Grid.Row="1" Grid.Column="2"></Label>
+        <ListView Grid.Row="1" x:Name="DataName" SelectionChanged="DataName_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding name, StringFormat=' {0} '}"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Content="Finnd Unit" FontSize="30" HorizontalAlignment="Center" Margin="30 0 0 0" Width="160" Grid.Row="3" Grid.Column="2"></Label>
+        <TextBox x:Name="FindUnit" Grid.Row="3" Grid.Column="2" Height="40" Width="200"></TextBox>
+        <Button Content="Find" FontSize="20" Height="40" Width="100" Grid.Column="3" Margin="0 90 0 0" Grid.Row="3" x:Name="FindUn" Click="FindUn_Click"></Button>
+        <Button Content="Change" FontSize="20" Height="40" Width="100" Grid.Column="3" Margin="0 90 0 0" Grid.Row="1" Click="Button_Click"></Button>
+    </Grid>
+</Window>
